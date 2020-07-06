@@ -54,4 +54,14 @@ class App
             
         });
     }
+
+    public static function baseUrl()
+    {
+        return (
+                    (!empty($_SERVER['HTTPS']))
+                    ? 'https'
+                    : 'http'
+                )
+                . '://' . $_SERVER['HTTP_HOST'];
+    }
 }

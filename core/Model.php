@@ -19,7 +19,7 @@ class Model
     public function all()
     {
         $connect = $this->connect();
-        $statement = $this->builder->getstatement();
+        $statement = $this->builder->getStatementSelect();
         $statement["table"] = $this->table;
 
         $statStr = join(' ', $statement);
@@ -31,27 +31,14 @@ class Model
 
     public function where(array $where)
     {
-        $str = '';
-        $count = 0;
-        if (empty($this->builder->where))
-        {
-            $str = 'WHERE';
-        }
-        else
-        {
-            $count = 1;
-        }
+        $this->builder->where($where);
 
-        foreach ($where as $key=>$val)
-        {
-            if ($count > 0) $str .= 'or ';
+        return $this;
+    }
 
-            $str .= ' ' . $key . '=' . $val . ' ';
-                
-            $count++;
-        }
-
-        $this->builder->where = $str;
+    public function orderBy(string $orderBy, bool $isDesc = false)
+    {
+        $this->builder->orderBy($orderBy, $isDesc);
 
         return $this;
     }
@@ -61,7 +48,7 @@ class Model
         if (empty($object)) return false;
 
         $connect = $this->connect();
-        $statement = 'insert into ' . $this->table . ' set ';
+        $statement = 'INSERT INTO ' . $this->table . ' SET ';
 
         $isFirst = true;
         foreach ($object as $key=>$val)
@@ -84,6 +71,70 @@ class Model
             echo $e->getMessage();
         }
         
+        unset($connect);
+        return $response;
+    }
+
+    public function update(int $id = null, array $update)
+    {
+        if (empty($update)) return false;
+
+        $connect = $this->connect();
+        $statement = 'UPDATE ' . $this->table . ' SET ';
+
+        $isFirst = true;
+        foreach ($update as $key=>$val)
+        {
+            if (!$isFirst) $statement .= ', ';
+            $statement .= $key . ' = "' .$val . '"';
+            $isFirst = false;
+        }
+
+        if (!is_null($id))
+            $this->builder->where(["id" => $id]);
+
+        $statement .= ' ' . $this->builder->where;
+
+        try
+        {
+            $connect->beginTransaction();
+            $response = $connect->exec($statement);
+
+            $connect->commit();
+        }
+        catch (Exception $e)
+        {
+            $connect->rollBack();
+            echo $e->getMessage();
+        }
+
+        unset($connect);
+        return $response;
+    }
+
+    public function delete(array $where)
+    {
+        $connect = $this->connect();
+        $statement = 'DELETE FROM ' . $this->table . ' ';
+
+        if (!empty($where))
+            $this->where($where);
+
+        $statement .= $this->builder->where;
+
+        try
+        {
+            $connect->beginTransaction();
+            $response = $connect->exec($statement);
+
+            $connect->commit();
+        }
+        catch (Exception $e)
+        {
+            $connect->rollBack();
+            echo $e->getMessage();
+        }
+
         unset($connect);
         return $response;
     }

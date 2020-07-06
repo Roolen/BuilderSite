@@ -8,19 +8,17 @@ class Home extends Controller
 {
     public function start()
     {
-        new View('home', ["name" => "Artem"]);
+        new View('header', ["title" => 'Home']);
+        new View('home', ["name" => 'Artem']);
+        new View('footer');
 
         $clientsModel = new ClientsModel();
-        
-        $client = [
-            "first_name" => "Egor",
-            "middle_name" => "Mihailovich",
-            "last_name" => "Zhimovksij",
-            "address" => "here",
-            "phone" => "89045548558"
-        ];
 
-        $response = $clientsModel->query()->insert($client);
+
+        $response = $clientsModel->query()
+                                 ->orderBy('first_name', true)
+                                 ->all();
+
         echo var_dump($response);
     }
 }

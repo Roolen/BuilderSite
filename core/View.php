@@ -11,6 +11,8 @@ class View
             extract($data);
         }
 
+        $content = App::baseUrl();
+
         include $paths->viewDirectory . '\\' . $nameView . '.php';
     }
 }
