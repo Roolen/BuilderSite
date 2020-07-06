@@ -19,6 +19,6 @@ class Home extends Controller
                                  ->orderBy('first_name', true)
                                  ->all();
 
-        echo var_dump($response);
+        //echo var_dump($response);
     }
 }

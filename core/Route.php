@@ -17,7 +17,7 @@ class Route
 
         foreach ($this->routes as $i => $val)
         {
-            if (preg_match('/('.$i.')/', $url))
+            if (preg_match('/^('.$i.')$/', $url))
             {
                 $cont = new $val();
                 $cont->start();
