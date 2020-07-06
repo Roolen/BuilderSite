@@ -13,6 +13,7 @@ class Route
     public function routeInController()
     {
         $url = $_SERVER['REQUEST_URI'];
+        $rt = explode('/', $_SERVER['REQUEST_URI']);
 
         foreach ($this->routes as $i => $val)
         {

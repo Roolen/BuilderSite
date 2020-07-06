@@ -7,4 +7,5 @@ Class Paths
     public $configDirectory = __DIR__;
     public $controllerDirectory = __DIR__ . "\..\controllers";
     public $viewDirectory = __DIR__ . "/../views";
+    public $modelDirectory = __DIR__ . "/../models";
 }

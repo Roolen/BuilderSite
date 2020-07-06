@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 
 $minPHPVersion = "7.2";
 if (phpversion() < $minPHPVersion)
@@ -9,6 +10,11 @@ unset($minPHPVersion);
 
 define("FCPATH", __DIR__ . DIRECTORY_SEPARATOR);
 $pathsPath = FCPATH . "../config/Paths.php";
+$databasePath = FCPATH . "../config/Database.php";
+$appPath = FCPATH . "../config/App.php";
+
+require $appPath;
+require $databasePath;
 
 chdir(__DIR__);
 require $pathsPath;
