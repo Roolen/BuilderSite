@@ -1,0 +1,34 @@
+@import "constants.scss";
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 100;
+
+    background: $accent;
+    box-shadow: 5px 0px 8px rgba(0, 0, 120, .3);
+}
+
+.nav-menu {
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+
+        &-item {
+            margin-top: 12px;
+            width: 100%;
+            height: fit-content;
+
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

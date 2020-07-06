@@ -1,0 +1,30 @@
+@import "constants.scss";
+
+body {
+    padding-left: 70px;
+
+    background: $back;
+
+    font-family: "Akrobat";
+}
+
+main {
+    padding: 20px;
+}
+
+.people-icon {
+
+    ::before {
+        content: "\f007";
+        display: block;
+        margin: auto;
+        width: fit-content;
+        color: $accent2;
+        font-family: "Awesome-Solid";
+        font-size: 32px;
+    }
+
+    &:hover ::before {
+        color: $accent3;
+    }
+}
