@@ -1,0 +1,18 @@
+{
+  "name": "builder-site",
+  "version": "0.1.2",
+  "description": "Site for building database.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.1"
+  },
+  "scripts": {
+    "build": "sass --no-source-map frontend/scss:public/css/",
+    "watch": "sass --watch --no-source-map frontend/scss:public/css/",
+    "test": "test"
+  },
+  "author": "Zhimovskij <zhimovskij@yandex.ru>",
+  "license": "ISC"
+}
