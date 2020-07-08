@@ -12,6 +12,12 @@ main {
     padding: 20px;
 }
 
+h1 {
+    margin-bottom: 18px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
 .people-icon {
 
     ::before {
@@ -26,5 +32,25 @@ main {
 
     &:hover ::before {
         color: $accent3;
+    }
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr;
+    overflow-wrap: anywhere;
+    align-items: center;
+
+    margin-top: 10px;
+    width: 100%;
+    min-height: 32px;
+    height: fit-content;
+
+    &-cell {
+        padding: 5%;
+    }
+
+    @media screen and (max-width: 800px) {
+        font-size: 12px;
     }
 }
