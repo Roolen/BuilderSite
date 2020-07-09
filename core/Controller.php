@@ -2,13 +2,13 @@
 
 class Controller
 {
-    
-}
+    protected \Core\Request $request;
 
-/*
- * Helper Functions
-*/
-function view(string $view)
-{
-    include APP_DIR . 'views\\' . $view . '.php';
+    protected \Core\Response $response;
+
+    public function __construct(\Core\Request $request, \Core\Response $response)
+    {
+        $this->request = $request;
+        $this->response = $response;
+    }
 }

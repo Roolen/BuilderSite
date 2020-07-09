@@ -15,4 +15,9 @@ class ClientsModel extends Model
                 ? $result
                 : false;
     }
+
+    public function createClient(array $client)
+    {
+        return $this->insert($client);
+    }
 }

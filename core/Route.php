@@ -19,8 +19,16 @@ class Route
         {
             if (preg_match('/^('.$i.')$/', $url))
             {
-                $cont = new $val();
-                $cont->start();
+                $request = new \Core\Request();
+                $response = new \Core\Response();
+                $cont = new $val($request, $response);
+
+                if (isset($rt[2]))
+                {
+                    $func = $rt[2];
+                    echo $cont->$func();
+                }
+                else echo $cont->start();
             }
         }
     }

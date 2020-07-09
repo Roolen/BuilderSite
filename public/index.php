@@ -12,9 +12,11 @@ define("FCPATH", __DIR__ . DIRECTORY_SEPARATOR);
 $pathsPath = FCPATH . "../config/Paths.php";
 $databasePath = FCPATH . "../config/Database.php";
 $appPath = FCPATH . "../config/App.php";
+$constantsPath = FCPATH . "../core/Constants.php";
 
 require $appPath;
 require $databasePath;
+require $constantsPath;
 
 chdir(__DIR__);
 require $pathsPath;

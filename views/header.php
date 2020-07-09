@@ -13,9 +13,10 @@
 <header class="header">
     <nav class="nav-menu">
         <ul class="nav-menu-list">
-            <li class="nav-menu-list-item people-icon"><a href="<?= $content ?>/clients"></a></li>
-            <li class="nav-menu-list-item"><a href="#"></a></li>
-            <li class="nav-menu-list-item"><a href="#"></a></li>
+            <li class="nav-menu-list-item client-icon"><a href="<?= $content ?>/clients"></a></li>
+            <li class="nav-menu-list-item clipboard-icon"><a href="#"></a></li>
+            <li class="nav-menu-list-item toolbox-icon"><a href="#"></a></li>
+            <li class="nav-menu-list-item boxes-icon"><a href="#"></a></li>
         </ul>
     </nav>
 </header>
