@@ -42,6 +42,8 @@ a {
         color: $accent2;
         font-family: "Awesome-Solid";
         font-size: 32px;
+
+        transition: all .5s;
     }
 
     &:hover ::before {
@@ -165,6 +167,27 @@ a {
     font-weight: bold;
     border: none;
     border-radius: 10px;
+    
+    transition: all .5s;
+    
+    &:hover {
+        color: $accent3;
+    }
+}
+
+.login-button {
+    margin-top: 22px;
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    
+    background: $accent;
+    color: $accent2;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 5px 0px 6px rgba(0, 0, 120, .3);
+    border: none;
+    border-radius: 10px;
 
     transition: all .5s;
 
@@ -182,6 +205,54 @@ a {
     background: none;
     border: none;
     border-right: 2px dashed $back2;
+}
+
+.edit-field-login {
+    display: block;
+    width: 20%;
+    min-width: 200px;
+    height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    background: none;
+    border: 1px dashed $accent;
+    border-radius: 10px;
+
+    transition: all 1s;
+
+    &:focus {
+        border-color: $accent3;
+    }
+}
+
+.label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+
+    transition: all 1s;
+
+    &:hover {
+        cursor: pointer;
+        color: $accent3;
+    }
+}
+
+.logout {
+    margin-top: 30px;
+    width: fit-content;
+    font-size: 20px;
+
+    a {
+        color: $accent;
+    }
+
+    &:hover a {
+        color: $accent3;
+    }
 }
 
 

@@ -13,4 +13,10 @@ class Response
         http_response_code($code);
         return $this;
     }
+
+    public function redirect(string $url, int $statusCode)
+    {
+        header('Location: ' . $url, true, $statusCode);
+        die();
+    }
 }

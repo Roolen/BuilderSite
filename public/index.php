@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+error_reporting(E_ERROR);
 
 $minPHPVersion = "7.2";
 if (phpversion() < $minPHPVersion)

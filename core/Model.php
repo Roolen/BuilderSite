@@ -29,6 +29,19 @@ class Model
         return $result->fetchAll();
     }
 
+    public function first()
+    {
+        $connect = $this->connect();
+        $statement = $this->builder->getStatementSelect();
+        $statement["table"] = $this->table;
+
+        $statStr = join(' ', $statement);
+
+        $result = $connect->query($statStr);
+        unset($connect);
+        return $result->fetch();
+    }
+
     public function where(array $where)
     {
         $this->builder->where($where);
